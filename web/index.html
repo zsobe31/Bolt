@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Egészségbolt</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">       
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        
+        <script src="main.js"></script>
+        
+        <style>
+            img{
+                box-shadow: 10px 5px 25px;
+            }
+        </style>
+        
+    </head>
+    <body onload="betolt()" style="background-color: antiquewhite">
+        
+        <div class="container">
+            <h1 class="text-center m-5">Vitamin nyilványtartó</h1>
+        </div>
+        
+        <section>
+            <img src="img/vitaminok.jpg" class="img-fluid mx-auto d-flex mt-5 mb-5">
+        </section>
+        
+        <div class="container text-justify">
+            <p>A vitamin olyan szerves vegyület, amely kis mennyiségben ugyan, de nélkülözhetetlen az emberi szervezet számára, 
+                viszont kellő mennyiségben az előállítására nem mindig képes, ezért tápanyag formájában kénytelen hozzájutni.
+                A vitaminokat nem kémiai szerkezetük, hanem biokémiai aktivitásuk alapján osztályozzák, ezért egy bizonyos vitaminnak akár több, 
+                azonos hatású vegyületet is tekinthetünk, amire jó példa az A-vitamin hat vitamerje. Van olyan vitamin, amit bizonyos feltételek 
+                mellett képes a szervezet előállítani, példa erre ember esetében a D-vitamin és a napsütés kapcsolata. Van olyan anyag, amely az 
+                egyik élőlény számára vitamin, a másiknak pedig nem. Erre példa a C-vitamin, amelyet a legtöbb állat szervezete képes előállítani, 
+                de az ember nem. Az esszenciális aminosavak, és az esszenciális zsírsavak nem számítanak vitaminnak, mert nagy mennyiségben van 
+                szükség rájuk. Mára tizenháromra csökkent a tudomány által elismert vitaminok száma.
+                A vegyes táplálkozás általában fedezi a vitaminszükségletet, de az étrend összeállításánál nemcsak arra kell törekedni, hogy a 
+                táplálék nyersanyaga vitaminban gazdag legyen, hanem figyelemmel kell lenni arra is, hogy az ételek elkészítése során – főleg a 
+                hevítés hatására – a vízben oldódó vitaminok 10-50%-a is elbomolhat, elveszhet. Az egészséges szervezet működéséhez nemcsak 
+                vitaminokra, hanem ásványi anyagokra, kofaktorokra és nyomelemekre is szükség van.
+                Ebben a szócikkben a tudomány mai állása szerint (2014-ben) ismert, ellenőrzött információkat igyekszünk közreadni, mellőzve 
+                a mendemondákat.</p>
+        </div>
+        
+        <section class="container-fluid mt-5">
+            
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    
+                    <div class="card" style="background-color: bisque">
+                        
+                        <div class="card-heading d-flex text-center">
+                            
+                            <h2 class="card-title ml-auto mt-5">Vitaminok</h2>
+                            
+                            <button class="btn btn-info ml-auto mr-2 mt-5" style="width: 150px; height: 50px"
+                                    data-toggle="modal" data-target="#myModal1">új vitamin</button>
+                            <button onclick="torol()" class="btn btn-danger mr-2 mt-5" style="width: 150px; height: 50px"
+                                    data-toggle="modal" data-target="#myModal2">törlés</button>
+                            <button onclick="modosit()" class="btn btn-warning mr-4 mt-5" style="width: 150px; height: 50px"
+                                    data-toggle="modal" data-target="#myModal3">módosít</button>
+                            
+                            <!-- The Modal felvitel -->
+                            <div class="modal fade" id="myModal1">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">Új vitamin hozzáadása</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+
+                                  <!-- Modal body -->
+                                  <div class="modal-body">
+                                      <input id="uj-nev" class="form-control mb-2" placeholder="új vitamin neve" autofocus>
+                                      <textarea id="uj-leiras" class="form-control" rows="5" placeholder="új vitamin leirása"></textarea>
+                                  </div>
+
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer">
+                                      <button onclick="ujVitamin()" type="button" class="btn btn-danger" data-dismiss="modal">Mentés</button>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <!-- The Modal törlés -->
+                            <div class="modal fade" id="myModal2">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">Vitamin törlése</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+
+                                  <!-- Modal body -->
+                                  <div class="modal-body">
+                                      <input id="torles-id" class="form-control" placeholder="soszám" autofocus>
+                                  </div>
+
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer">
+                                      <button onclick="torolVitamin()" type="button" class="btn btn-danger" data-dismiss="modal">Mentés</button>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <!-- The Modal módosítás -->
+                            <div class="modal fade" id="myModal3">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">Vitamin módosítás</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+
+                                  <!-- Modal body -->
+                                  <div class="modal-body">
+                                      <input id="mod-id" class="form-control mb-2" placeholder="soszám" autofocus>
+                                      <input id="mod-nev" class="form-control mb-2" placeholder="vitamin neve">
+                                      <textarea id="mod-leiras" class="form-control" rows="5" placeholder="vitamin leirása"></textarea>
+                                  </div>
+
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer">
+                                      <button onclick="modVitamin()" type="button" class="btn btn-danger" data-dismiss="modal">Mentés</button>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="container-fluid card-body mx-auto text-center">
+                            
+                            <input class="custom-select" id="tablazat-kereses" type="text" placeholder="keresés...">
+                            
+                            <table id="tablazat" class="table table-bordered table-hover shadow mx-auto text-center">
+                                
+                                <thead>
+                                    <tr>
+                                        <td style="width: 10%">Sorszám</td>
+                                        <td style="width: 20%">Név</td>
+                                        <td style="width: 70%">Leirás</td>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody id="tablazat-tbody"></tbody>
+                                
+                            </table>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </body>
+</html>
